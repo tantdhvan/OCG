@@ -77,12 +77,12 @@ python validate_outputs.py
 
 `reproduce_all.py` runs the stages in this order:
 
-1. main GridWorld and allocation experiments;
-2. GridWorld scaling;
-3. Direct-CVX numerical references;
-4. Frank-Wolfe baseline;
-5. allocation scaling;
-6. per-instance gap-to-reference table and figure.
+1. main GridWorld, allocation, and GridWorld scaling experiments;
+2. Direct-CVX numerical references;
+3. Frank-Wolfe baseline;
+4. allocation scaling;
+5. per-instance gap-to-reference table and figure;
+6. completion message and handoff to `validate_outputs.py`.
 
 The complete run overwrites the CSV and figure files under `results/` and
 `figures/`. The run is deterministic for the fixed seeds, apart from small
@@ -122,7 +122,8 @@ commands above for the complete reference and baseline tables.
 
 ### GridWorld
 
-- Base map: `10 x 10`, horizon `H=24`, four actions, and start state `(0,0)`.
+- Base map: `10 x 10`, horizon `H=24`, four movement actions plus an explicit
+  `stay` action, and start state `(0,0)`.
 - Intended moves have probability `0.95`; the remaining probability is a
   stay-put transition.
 - The base maps have 8 obstacles and 12 target cells.
